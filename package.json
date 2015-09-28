@@ -1,0 +1,24 @@
+{
+  "name": "frontend_boilerplate",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "npm run build:js && npm run build:css && npm run minify:js && npm run minify:css",
+    "build:dev": "npm run build:js & npm run build:css",
+    "build:watch": "npm run build:js:watch & npm run build:css:watch",
+    "build:js": "browserify themes/default/src/es6/app.es6 -t babelify -o themes/default/dist/js/app.js",
+    "build:js:watch": "watchify themes/default/src/es6/app.es6 -t babelify -o themes/default/dist/js/app.js",
+    "build:css": "node-sass -r --include-path node_modules/ themes/default/src/scss/ -o themes/default/dist/css/",
+    "build:css:watch": "node-sass -w --include-path node_modules/ themes/default/src/scss/ -o themes/default/dist/css/",
+    "minify:js": "minify themes/default/dist/js/",
+    "minify:css": "minify themes/default/dist/css/"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.0.1",
+    "minifier": "^0.7.1",
+    "node-sass": "^3.3.2",
+    "watchify": "^3.3.1"
+  }
+}
+ 
